@@ -938,3 +938,15 @@ ul.nostyle i {
   box-shadow: none;
   -webkit-box-shadow: none;
 }
+
+/*********************登录****************************/
+.login {margin: auto; width: 900px; padding:100px; background-color: #F3F9FA; margin-top: 80px; margin-bottom: 130px;}
+.login-title {display: inline-block; width: 130px; float: left; letter-spacing: 3px; font-weight: bold;}
+.login-content {display: inline-block; width: 560px; float: right;}
+.w-40 {width: 100px;}
+.m-t-40 {margin-top: 40px;}
+
+/********************文件下载目录***********************/
+.list-content {margin-top: 40px; margin-bottom: 60px;}
+.list-download {display: inline-block; float: right; text-decoration: none;}
+.list-item {border-bottom: 1px solid #ccc; width: 100%; padding-bottom: 5px; padding-top: 10px;}

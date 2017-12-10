@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="">
+<meta name="author" content="">
+<title>比特创客教育</title>
+<!-- core CSS -->
+<link href="css/bootstrap.min.css" rel="stylesheet">
+<link href="css/font-awesome.min.css" rel="stylesheet">
+<link href="css/animate.min.css" rel="stylesheet">
+<link href="css/owl.carousel.css" rel="stylesheet">
+<link href="css/owl.transitions.css" rel="stylesheet">
+<link href="css/prettyPhoto.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<link href="css/responsive.css" rel="stylesheet">
+<!--[if lt IE 9]>
+<script src="js/html5shiv.js"></script>
+<script src="js/respond.min.js"></script>
+<![endif]-->       
+</head><!--/head-->
+<body>
+    <header id="header">
+	<nav id="main-menu" class="navbar navbar-default navbar-fixed-top" role="banner">
+		<div class="container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+				<a class="navbar-brand" href="index.html"><img src="images/logo.png" alt="logo"></a>
+			</div>
+		</div><!--/.container-->
+	</nav><!--/nav-->
+    </header><!--/header-->
+    <div class="login">
+        <div class="form-group clearfix">
+            <span class="login-title">用户名：</span>
+            <span class="login-content"><input type="text" name="username"  class="form-control" placeholder="用户名" required/></span>
+        </div>
+        <div class="form-group clearfix">
+            <span class="login-title">密&nbsp;&nbsp;&nbsp;码：</span>
+            <span class="login-content"><input type="password" name="password"  class="form-control" placeholder="密码" required/></span>
+        </div>
+        <div class="form-group clearfix">
+            <span class="login-title">验证码：</span>
+            <span class="login-content">
+                <input type="text" name="checkcode"  class="form-control" placeholder="验证码" required style="border-right:0; width: 400px; display: inline-block; border-top-right-radius: 0; border-bottom-right-radius: 0; margin-right: 0;"/>
+                <img onclick="refresh()" id="vcode" src="vcode.php" alt="" style="width: 158px; height: 34px; border: 1px solid #ccc; border-left: 0; border-top-right-radius: 4px; border-bottom-right-radius: 4px; margin-left: -2px;" />
+            </span>
+        </div>
+        <div class="form-group" style="text-align: right;">
+            <button class="btn btn-primary w-40 m-t-40" onclick="checklogin()">登录</button>
+        </div>
+    </div>
+    <footer id="footer">
+	<div class="container">
+		<div class="row">
+			<div class="col-sm-6">青岛比特创客教育 &copy; 2017.鲁ICP备案************<a target="_blank" href="qingdaowanfan.com">青岛万帆文化传媒有限责任公司</a></div>
+		</div>
+	</div>
+</footer><!--/#footer-->
+<script src="js/jquery.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script>
+    function refresh() {
+        var url = "vcode.php?" + Math.random();
+        $("#vcode").attr("src", url);
+    }
+    function checklogin() {
+        var username = $("[name='username']").val();
+        var password = $("[name='password']").val();
+        var checkcode = $("[name='checkcode']").val();
+        
+        $.ajax({
+            type: 'POST',
+            url: "login.php",
+            data: {username: username, password: password, checkcode: checkcode},
+            dataType: "json",
+            success: function(data){
+                if (data.result == 'fail') {
+                    alert(data.reason);
+                } else {
+                    alert("成功");
+                }
+            },
+        });
+    }
+</script>
+</body>
+</html>
