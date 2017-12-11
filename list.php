@@ -1,6 +1,7 @@
 <?php
 include_once("../route/default.php");
 include_once("../admin/config.php");
+
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -8,7 +9,7 @@ if (!isset($_SESSION['user']) || empty($_SESSION['user'])) {
     header("location:login.html");
     exit;
 }
-$pdo = new PDO("mysql:host=" . MYSQL_SERVER . ";dbname=bitrobot", MYSQL_USERNAME, MYSQL_PASSWORD);
+$pdo = new PDO("mysql:host=" . MYSQL_SERVER . ";dbname=" . MYSQL_DATABASE, MYSQL_USERNAME, MYSQL_PASSWORD);
 $sql = "SELECT * FROM " . MYSQL_PREFIX . "files WHERE status=0";
 $result = $pdo->query($sql);
 if ($result == false ) {

@@ -1,5 +1,9 @@
 <?php
+include_once("../route/default.php");
 include_once("../admin/config.php");
+
+logging::set_logging_dir(APP_PATH . "/logs/");
+
 if (!isset($_SESSION)) {
     session_start();
 }
@@ -17,7 +21,7 @@ if ($checkcode !== strtolower($_SESSION['vcode'])) {
     $re['result'] = 'fail';
     $re['reason'] = '密码不能为空'; 
 } else {
-    $pdo = new PDO("mysql:host=" . MYSQL_SERVER . ";dbname=bitrobot", MYSQL_USERNAME, MYSQL_PASSWORD);
+    $pdo = new PDO("mysql:host=" . MYSQL_SERVER . ";dbname=" . MYSQL_DATABASE, MYSQL_USERNAME, MYSQL_PASSWORD);
     
     $username = $pdo->quote($username);
     $password = $pdo->quote($password);
@@ -27,6 +31,7 @@ if ($checkcode !== strtolower($_SESSION['vcode'])) {
         $re['reason'] = '请求非法';  
     } else {
         $sql = "SELECT * FROM " . MYSQL_PREFIX . "user WHERE username={$username} AND password={$password}";
+        logging::d("Login", $sql);
         $result = $pdo->query($sql);
         if ($result == false ) {
             $re['result'] = 'fail';
