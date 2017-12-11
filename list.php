@@ -1,4 +1,5 @@
 <?php
+define('UPLOAD_URL', '/admin/upload/');
 include_once("../route/default.php");
 include_once("../admin/config.php");
 
@@ -64,7 +65,7 @@ if ($result == false ) {
         <div class="list-content">
             <div style="font-weight: bold; margin-bottom: 20px;">文件列表</div>
             <?php foreach ($list as $l) { ?>
-            <div class="list-item clearfix"><span><?php echo $l['filename']; ?></span><a class="list-download btn btn-primary" href="<?php echo UPLOAD_URL . $l['path']; ?>" download="<?php echo $l['title']; ?>">下载</a></div>
+            <div class="list-item clearfix"><span><?php echo $l['title']; ?></span><a class="list-download btn btn-primary" href="<?php echo UPLOAD_URL . $l['path']; ?>" download="<?php echo $l['filename']; ?>">下载</a></div>
             <?php } ?>
         </div>
     </div>
