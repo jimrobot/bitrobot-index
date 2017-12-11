@@ -382,7 +382,7 @@
 				<h3 class="column-title">比特创客视频展示</h3>
 				<!-- 16:9 aspect ratio -->
 				<div class="embed-responsive embed-responsive-16by9">
-					<iframe src="比特创客教育.mp4" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+					<iframe src="[:app]/比特创客教育.mp4" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 				</div>
 			</div>
 
