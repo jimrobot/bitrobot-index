@@ -680,24 +680,14 @@
 					</div>
 
 					<div class="panel panel-default">
-						<div class="panel-heading" role="tab" id="headingFour">
+						<div class="panel-heading" role="tab" id="!headingFour">
 							<h4 class="panel-title">
-								<a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+								<a class="collapsed" data-toggle="!collapse" data-parent="!#accordion" href="[:app]/login.html" aria-expanded="!false" aria-controls="!collapseFour">
 									资料下载
 								</a>
 							</h4>
 						</div>
 						<div id="collapseFour" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingFour">
-							<div class="panel-body">
-								<p>1、资料1</p>
-								<p>2、资料2</p>
-								<p>3、资料3</p>
-								<p>4、资料4</p>
-								<p>5、资料5</p>
-								<p>6、资料6</p>
-								<p>7、资料7</p>
-								<p>8、资料8</p>
-							</div>
 						</div>
 					</div>
 
